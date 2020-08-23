@@ -66,6 +66,16 @@ public class DAOManager {
         return new EmployeeDAO(this.connection);
     }
 
+    /**
+     *
+     * @return DAO class for {@link logic.Department}
+     * @throws SQLException
+     */
+    public DepartmentDAO geDepartmentDAO() throws SQLException {
+        ensureConnection();
+        return new DepartmentDAO(this.connection);
+    }
+
     private DAOManager() {
         connectionFactory = ConnectionFactory.getInstance();
     }

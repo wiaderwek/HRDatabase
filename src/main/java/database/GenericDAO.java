@@ -12,7 +12,6 @@ import java.util.Collection;
  */
 public abstract class GenericDAO {
 
-    protected final String tableName;
     protected Connection connection;
 
     protected abstract Object mapToObject(ResultSet res) throws SQLException;
@@ -26,8 +25,7 @@ public abstract class GenericDAO {
         return result;
     }
 
-    protected GenericDAO(Connection connection, String tableName) {
-        this.tableName = tableName;
+    protected GenericDAO(Connection connection) {
         this.connection = connection;
     }
 

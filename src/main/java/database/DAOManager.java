@@ -45,7 +45,7 @@ public class DAOManager {
 
     /**
      * open connection to database if connection was never opened or if it closed.
-     * 
+     *
      * @throws SQLException
      */
     private void ensureConnection() throws SQLException {
@@ -54,6 +54,16 @@ public class DAOManager {
         } catch (SQLException e) {
             throw e;
         }
+    }
+
+    /**
+     *
+     * @return DAO class for {@link logic.Employee}
+     * @throws SQLException
+     */
+    public EmployeeDAO getEmployeeDAO() throws SQLException {
+        ensureConnection();
+        return new EmployeeDAO(this.connection);
     }
 
     private DAOManager() {
